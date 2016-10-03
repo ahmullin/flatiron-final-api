@@ -1,6 +1,6 @@
 module Api
   module V1
-    class UsersController < ApplicationController
+    class ChaptersController < ApplicationController
 
       def create
       end
