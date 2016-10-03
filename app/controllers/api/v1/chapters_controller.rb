@@ -3,11 +3,18 @@ module Api
     class ChaptersController < ApplicationController
 
       def create
+        chapter = Chapter.new(chapter_params)
+          if chapter.save
+            render json: chapter
+          else
+            render json: chapter.errors, status: 500
+          end
       end
+
 
       def show
+        render json: Chapter.find(params[:id])
       end
-
       def edit
       end
 
@@ -16,6 +23,11 @@ module Api
 
       def destroy
       end
+
+      private
+        def chapter_params
+          params.require(:chapter).permit(:title, :description, :book_id)
+        end
 
     end
   end
