@@ -22,6 +22,7 @@ gem 'rack-cors'
 gem 'active_model_serializers'
 gem 'jwt'
 gem 'figaro'
+gem 'paperclip', '~> 5.0.0'
 
 group :test do
   gem 'rspec-rails'
