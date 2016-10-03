@@ -1,18 +1,37 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+User.create(username: "sophie", first_name: "Sophie", last_name: "Debenedetto", email: "sophie@gmail.com", password: "password")
+User.create(username: "ali", first_name: "Ali", last_name: "Mullin", email: "ali@gmail.com", password: "password")
+User.create(username: "logan", first_name: "Logan", last_name: "Gants", email: "logan@gmail.com", password: "password")
+User.create(username: "francis", first_name: "Francis", last_name: "Rocco", email: "francis@gmail.com", password: "password")
 
+15.times do
+	Book.create(title: Faker::Book.title, genre: Faker::Book.genre, description: Faker::Hipster.sentence)
+end
 
-sophie = User.create(username: "sophie", first_name: "Sophie", last_name: "Debenedetto", email: "sophie@gmail.com", password: "password")
+15.times do
+  UserBook.create
+end
 
-new_book = Book.create(title: "Flatiron Tales", genre: "adventure", description: "a story about love")
+UserBook.all.each do |userbook|
+  userbook.user_id = rand(1..User.all.length)
+  userbook.book_id = rand(1..Book.all.length)
+  userbook.save
+end
 
-UserBook.create(user_id: sophie.id, book_id: new_book.id)
+30.times do
+	Chapter.create(title: "Chapter " + Faker::Hipster.word, description: Faker::Hipster.sentence)
+end
 
-chapter1 = Chapter.create(title: "Chapter 1", book_id: new_book.id, description: "The first chapter")
+Chapter.all.each do |chapter|
+  chapter.book_id = rand(1..Book.all.length)
+  chapter.save
+end
 
-first_snippet = Snippet.create(content: "It was the best of times.", chapter_id:chapter1.id, user_id: sophie.id, approved: true)
+60.times do
+	Snippet.create(content: Faker::Hipster.paragraph, approved: true)
+end
+
+Snippet.all.each do |snippet|
+  snippet.chapter_id = rand(1..Chapter.all.length)
+  snippet.user_id = rand(1..User.all.length)
+  snippet.save
+end
