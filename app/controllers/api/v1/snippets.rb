@@ -1,6 +1,6 @@
 module Api
   module V1
-    class UsersController < ApplicationController
+    class SnippetsController < ApplicationController
 
       def create
       end
