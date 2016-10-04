@@ -12,7 +12,7 @@ module Api
           render json: {error: "could not authenticate this user"}
         end
       end
-      
+
     end
   end
 end
