@@ -27,7 +27,7 @@ Chapter.all.each do |chapter|
 end
 
 60.times do
-	Snippet.create(content: Faker::Hipster.paragraph, approved: true)
+	Snippet.create(content: Faker::Hipster.paragraph)
 end
 
 Snippet.all.each do |snippet|
