@@ -3,7 +3,7 @@ module Api
     class BooksController < ApplicationController
 
       def index
-        render json: Book.all
+        render json: Book.all, include: {chapters: [:snippets]}
       end
 
       def create

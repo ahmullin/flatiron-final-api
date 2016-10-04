@@ -12,9 +12,11 @@ module Api
       end
 
 
+
       def show
         render json: Chapter.find(params[:id])
       end
+
       def edit
       end
 
