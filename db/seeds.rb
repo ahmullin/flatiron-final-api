@@ -26,8 +26,12 @@ Chapter.all.each do |chapter|
   chapter.save
 end
 
-60.times do
-	Snippet.create(content: Faker::Hipster.paragraph)
+30.times do
+	Snippet.create(content: Faker::Hipster.paragraph, approved: true)
+end
+
+30.times do
+	Snippet.create(content: Faker::Hipster.paragraph, approved: false)
 end
 
 Snippet.all.each do |snippet|

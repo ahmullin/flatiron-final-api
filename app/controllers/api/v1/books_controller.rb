@@ -6,10 +6,6 @@ module Api
         render json: Book.all
       end
 
-      def show
-        render json: Book.find(params[:id])
-      end
-
       def create
         book = Book.new(book_params)
           if book.save
@@ -19,6 +15,10 @@ module Api
           end
       end
 
+
+      def show
+        render json: Book.find(params[:id])
+      end
 
 
       def edit
@@ -33,7 +33,7 @@ module Api
       private
 
         def book_params
-          params.require(:book).permit(:title, :genre, :description)
+          params.require(:book).permit(:title, :genre, :description, :user_id)
         end
 
     end
