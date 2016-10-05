@@ -11,8 +11,6 @@ module Api
           end
       end
 
-
-
       def show
         render json: Chapter.find(params[:id])
       end
