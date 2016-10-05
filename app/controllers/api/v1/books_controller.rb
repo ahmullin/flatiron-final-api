@@ -8,13 +8,12 @@ module Api
 
       def create
         book = Book.new(book_params)
-          if book.save
-            render json: book
-          else
-            render json: book.errors, status: 500
-          end
+        if book.save
+          render json: book
+        else
+          render json: book.errors, status: 500
+        end
       end
-
 
       def show
         render json: Book.find(params[:id])
