@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-# before_action :authenticate
+before_action :authenticate
 
   def authenticate
     if request.env["HTTP_AUTHORIZATION"]

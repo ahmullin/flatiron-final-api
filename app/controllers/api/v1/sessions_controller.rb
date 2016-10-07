@@ -4,7 +4,6 @@ module Api
       skip_before_action :authenticate
 
       def create
-        binding.pry
         user = User.find_by(email: session_params[:email])
         if user.authenticate(session_params[:password])
           token = JWT.encode({id: user.id}, ENV["AUTH_SECRET_KEY"], 'HS256')
