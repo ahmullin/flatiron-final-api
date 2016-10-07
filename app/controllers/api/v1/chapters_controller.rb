@@ -10,7 +10,7 @@ module Api
             render json: chapter.errors, status: 500
           end
       end
-
+      
       def show
         render json: Chapter.find(params[:id])
       end
