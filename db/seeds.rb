@@ -4,38 +4,25 @@ User.create(username: "logan", first_name: "Logan", last_name: "Gants", email: "
 User.create(username: "francis", first_name: "Francis", last_name: "Rocco", email: "francis@gmail.com", password: "password")
 
 15.times do
-	Book.create(title: Faker::Book.title, genre: Faker::Book.genre, description: Faker::Hipster.sentence)
+	Book.create(title: Faker::Book.title, author_id: rand(1..User.all.length), genre: Faker::Book.genre, description: Faker::Hipster.sentence)
 end
 
 15.times do
-  UserBook.create
-end
-
-UserBook.all.each do |userbook|
-  userbook.user_id = rand(1..User.all.length)
-  userbook.book_id = rand(1..Book.all.length)
-  userbook.save
+  UserBook.create(user_id: rand(1..User.all.length), book_id: rand(1..Book.all.length))
 end
 
 30.times do
-	Chapter.create(title: "Chapter " + Faker::Hipster.word, description: Faker::Hipster.sentence)
-end
-
-Chapter.all.each do |chapter|
-  chapter.book_id = rand(1..Book.all.length)
-  chapter.save
+	Chapter.create(title: "Chapter " + Faker::Hipster.word, author_id: rand(1..User.all.length), description: Faker::Hipster.sentence)
 end
 
 30.times do
-	Snippet.create(content: Faker::Hipster.paragraph, approved: true)
+  UserChapter.create(user_id: rand(1..User.all.length), chapter_id: rand(1..Chapter.all.length), vote_choice: rand(-1..1))
 end
 
 30.times do
 	Snippet.create(content: Faker::Hipster.paragraph, approved: false)
 end
 
-Snippet.all.each do |snippet|
-  snippet.chapter_id = rand(1..Chapter.all.length)
-  snippet.user_id = rand(1..User.all.length)
-  snippet.save
+30.times do
+	UserSnippet.create(user_id: rand(1..User.all.length), snippet_id: rand(1..Snippet.all.length), vote_choice: rand(-1..1))
 end
