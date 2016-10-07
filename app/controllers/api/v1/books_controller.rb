@@ -19,7 +19,6 @@ module Api
         render json: Book.find(params[:id])
       end
 
-
       def edit
       end
 
@@ -27,6 +26,8 @@ module Api
       end
 
       def destroy
+        Book.find(params[:id]).destroy
+        head :no_content
       end
 
       private
