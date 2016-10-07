@@ -1,10 +1,10 @@
 class CreateSnippets < ActiveRecord::Migration[5.0]
   def change
     create_table :snippets do |t|
-      t.string :content
-      t.references :user, foreign_key: true
       t.references :chapter, foreign_key: true
-      t.boolean :approved
+      t.boolean :approved, default: false
+      t.integer :author_id
+      t.string :content
 
       t.timestamps
     end
