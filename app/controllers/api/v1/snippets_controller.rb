@@ -15,7 +15,7 @@ module Api
       def show
         render json: Snippet.find(params[:id])
       end
-      
+
       def edit
       end
 
@@ -27,7 +27,7 @@ module Api
 
       private
         def snippet_params
-          params.require(:snippet).permit(:content, :approved, :user_id, :book_id)
+          params.require(:snippet).permit(:content, :approved, :user_id, :chapter_id)
         end
 
     end
