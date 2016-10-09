@@ -3,7 +3,7 @@ module Api
     class BooksController < ApplicationController
 
       def index
-        render json: Book.all, include: {chapters: [:snippets]}
+        render json: Book.all.order('created_at DESC'), include: {chapters: [:snippets]}
       end
 
       def create
@@ -27,13 +27,12 @@ module Api
 
       def destroy
         Book.find(params[:id]).destroy
-        head :no_content
       end
 
       private
 
         def book_params
-          params.require(:book).permit(:title, :genre, :description, :user_id)
+          params.require(:book).permit(:title, :genre, :description, :author_id)
         end
 
     end

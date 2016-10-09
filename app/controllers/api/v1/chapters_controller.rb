@@ -10,7 +10,7 @@ module Api
             render json: chapter.errors, status: 500
           end
       end
-      
+
       def show
         render json: Chapter.find(params[:id])
       end
@@ -26,7 +26,7 @@ module Api
 
       private
         def chapter_params
-          params.require(:chapter).permit(:title, :description, :book_id)
+          params.require(:chapter).permit(:title, :description, :book_id, :author_id)
         end
 
     end

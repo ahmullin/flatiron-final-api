@@ -11,7 +11,6 @@ module Api
           end
       end
 
-
       def show
         render json: Snippet.find(params[:id])
       end
@@ -23,11 +22,12 @@ module Api
       end
 
       def destroy
+        Snippet.find(params[:id]).destroy
       end
 
       private
         def snippet_params
-          params.require(:snippet).permit(:content, :approved, :user_id, :chapter_id)
+          params.require(:snippet).permit(:content, :approved, :user_id, :chapter_id, :author_id)
         end
 
     end
