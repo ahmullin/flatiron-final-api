@@ -15,10 +15,14 @@ module Api
         render json: Snippet.find(params[:id])
       end
 
-      def edit
-      end
-
       def update
+        snippet = Snippet.find(params[:id])
+        snippet.approved = true
+        if snippet.save
+          render json: snippet
+        else
+          render json: snippet.errors, status: 500
+        end
       end
 
       def destroy
