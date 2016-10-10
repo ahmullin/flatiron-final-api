@@ -15,9 +15,9 @@ end
 	Chapter.create(title: "Chapter " + Faker::Hipster.word, author_id: rand(1..User.all.length), book_id: rand(1..Book.all.length), description: Faker::Hipster.sentence)
 end
 
-60.times do
-  UserChapter.create(user_id: rand(1..User.all.length), chapter_id: rand(1..Chapter.all.length), vote_choice: rand(-1..1))
-end
+# 60.times do
+#   UserChapter.create(user_id: rand(1..User.all.length), chapter_id: rand(1..Chapter.all.length), vote_choice: rand(-1..1))
+# end
 
 120.times do
 	Snippet.create(content: Faker::Hipster.paragraph, chapter_id: rand(1..Chapter.all.length), approved: false)
