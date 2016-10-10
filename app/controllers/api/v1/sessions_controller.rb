@@ -19,7 +19,6 @@ module Api
         params.require(:session).permit(:email, :password)
       end
 
-
     end
   end
 end

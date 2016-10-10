@@ -7,7 +7,6 @@ module Api
         chapter_id = params[:data][:chapter_id]
         vote_choice = params[:data][:vote_chioce]
 
-        binding.pry
         if UserChapter.find_by(user_id: user_id, chapter_id: chapter_id)
           old_user_chapter = UserChapter.find_by(user_id: user_id, chapter_id: chapter_id)
           if vote_choice == 1
