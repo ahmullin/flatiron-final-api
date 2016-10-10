@@ -11,8 +11,12 @@ end
   UserBook.create(user_id: rand(1..User.all.length), book_id: rand(1..Book.all.length))
 end
 
-60.times do
-	Chapter.create(title: "Chapter " + Faker::Hipster.word, author_id: rand(1..User.all.length), book_id: rand(1..Book.all.length), description: Faker::Hipster.sentence)
+30.times do
+	Chapter.create(title: "Chapter " + Faker::Hipster.word, author_id: rand(1..User.all.length), book_id: rand(1..Book.all.length), description: Faker::Hipster.sentence, approved: true)
+end
+
+30.times do
+	Chapter.create(title: "Chapter " + Faker::Hipster.word, author_id: rand(1..User.all.length), book_id: rand(1..Book.all.length), description: Faker::Hipster.sentence, approved: false)
 end
 
 # 60.times do

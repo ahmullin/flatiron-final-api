@@ -15,10 +15,14 @@ module Api
         render json: Chapter.find(params[:id])
       end
 
-      def edit
-      end
-
       def update
+        chapter = Chapter.find(params[:id])
+        chapter.approved = true
+        if chapter.save
+          render json: chapter
+        else
+          render json: chapter.errors, status: 500
+        end
       end
 
       def destroy
@@ -26,7 +30,7 @@ module Api
 
       private
         def chapter_params
-          params.require(:chapter).permit(:title, :description, :book_id, :author_id)
+          params.require(:chapter).permit(:title, :description, :book_id, :author_id, :approved)
         end
 
     end
