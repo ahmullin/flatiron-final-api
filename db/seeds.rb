@@ -4,7 +4,11 @@ User.create(username: "logan", first_name: "Logan", last_name: "Gants", email: "
 User.create(username: "francis", first_name: "Francis", last_name: "Rocco", email: "francis@gmail.com", password: "password")
 
 15.times do
-	Book.create(title: Faker::Book.title, author_id: rand(1..User.all.length), genre: Faker::Book.genre, description: Faker::Hipster.sentence)
+	Book.create(title: Faker::Book.title, author_id: rand(1..User.all.length), genre: Faker::Book.genre, description: Faker::Hipster.sentence, complete: false)
+end
+
+5.times do
+	Book.create(title: Faker::Book.title, author_id: rand(1..User.all.length), genre: Faker::Book.genre, description: Faker::Hipster.sentence, complete: true)
 end
 
 15.times do
@@ -23,6 +27,6 @@ end
 	Snippet.create(content: Faker::Hipster.paragraph, chapter_id: rand(1..Chapter.all.length), approved: false)
 end
 
-120.times do
-	UserSnippet.create(user_id: rand(1..User.all.length), snippet_id: rand(1..Snippet.all.length), vote_choice: rand(-1..1))
-end
+# 120.times do
+# 	UserSnippet.create(user_id: rand(1..User.all.length), snippet_id: rand(1..Snippet.all.length), vote_choice: rand(-1..1))
+# end

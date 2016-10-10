@@ -46,19 +46,6 @@ module Api
         end
       end
 
-
-      def show
-      end
-
-      def edit
-      end
-
-      def update
-      end
-
-      def destroy
-      end
-
       private
         def user_chapter_params
           params.require(:data).permit(:user_id, :chapter_id, :vote_choice)
