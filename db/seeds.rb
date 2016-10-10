@@ -19,7 +19,11 @@ end
 #   UserChapter.create(user_id: rand(1..User.all.length), chapter_id: rand(1..Chapter.all.length), vote_choice: rand(-1..1))
 # end
 
-120.times do
+90.times do
+	Snippet.create(content: Faker::Hipster.paragraph, chapter_id: rand(1..Chapter.all.length), approved: true)
+end
+
+90.times do
 	Snippet.create(content: Faker::Hipster.paragraph, chapter_id: rand(1..Chapter.all.length), approved: false)
 end
 
