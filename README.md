@@ -1,24 +1,16 @@
-# README
+# CollaboWrite
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Our story is a collaborative book writing platform.
 
-Things you may want to cover:
+A user can create a book with chapters and then other users can contribute snippets to write a chapter.
 
-* Ruby version
+This project was created by this repository's collaborators: Logan Gants, Ali Mullin, and Francis Rocco.
 
-* System dependencies
+This project showcases the collaborators knowledge of key concepts like:
 
-* Configuration
+* Rails API backend
+* React/Redux frontend
+* HTML/CSS in conjunction with Bootstrap
+* RESTful conventions
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The React front end repository can be found [here](https://github.com/lgants/flatiron-final-react).
