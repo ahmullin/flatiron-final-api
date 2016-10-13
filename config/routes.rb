@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :chapters
       resources :snippets
       resources :user_chapters
+      resources :user_snippets
       post '/login', to: "sessions#create"
       post '/chapter_vote', to: "user_chapters#vote"
       post '/snippet_vote', to: "user_snippets#vote"
