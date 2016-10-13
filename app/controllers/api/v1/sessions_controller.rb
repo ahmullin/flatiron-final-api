@@ -7,7 +7,7 @@ module Api
         user = User.find_by(email: session_params[:email])
         if user.authenticate(session_params[:password])
           token = JWT.encode({id: user.id}, ENV["AUTH_SECRET_KEY"], 'HS256')
-          render json: {jwt: token, currentUserId: user.id}
+          render json: {jwt: token, currentUserId: user.id, currentUserName: user.username}
         else
           render json: {error: "could not authenticate this user"}
         end
