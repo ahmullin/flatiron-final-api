@@ -19,6 +19,10 @@ module Api
         chapter = Chapter.find(params[:id])
         chapter.approved = true
         if chapter.save
+          chapter.snippets.each do |snippet|
+            snippet.approved = true
+            snippet.save
+          end
           render json: chapter
         else
           render json: chapter.errors, status: 500
