@@ -3,6 +3,35 @@ User.create(username: "ali", first_name: "Ali", last_name: "Mullin", email: "ali
 User.create(username: "logan", first_name: "Logan", last_name: "Gants", email: "logan@gmail.com", password: "password")
 User.create(username: "francis", first_name: "Francis", last_name: "Rocco", email: "francis@gmail.com", password: "password")
 
+15.times do
+	Book.create(title: Faker::Book.title, author_id: rand(1..User.all.length), genre: Faker::Book.genre, description: Faker::Hipster.sentence, complete: false)
+end
+
+5.times do
+	Book.create(title: Faker::Book.title, author_id: rand(1..User.all.length), genre: Faker::Book.genre, description: Faker::Hipster.sentence, complete: true)
+end
+
+
+30.times do
+	Chapter.create(title: "Chapter " + Faker::Hipster.word, author_id: rand(1..User.all.length), book_id: rand(1..Book.all.length), description: Faker::Hipster.sentence, approved: true)
+end
+
+30.times do
+	Chapter.create(title: "Chapter " + Faker::Hipster.word, author_id: rand(1..User.all.length), book_id: rand(1..Book.all.length), description: Faker::Hipster.sentence, approved: false)
+end
+
+60.times do
+  UserChapter.create(user_id: rand(1..User.all.length), chapter_id: rand(1..Chapter.all.length), vote_choice: rand(-1..1))
+end
+
+90.times do
+	Snippet.create(content: Faker::Hipster.paragraph, chapter_id: rand(1..Chapter.all.length), approved: true)
+end
+
+90.times do
+	Snippet.create(content: Faker::Hipster.paragraph, chapter_id: rand(1..Chapter.all.length), approved: false)
+end
+
 book1 = Book.create(title: "Half-hours with the Highwaymen", author_id: rand(1..User.all.length), genre: "Biography", description: "Picturesque Biographies and Traditions of the 'Knights of the Road'", complete: true)
 
 chapter1 = Chapter.create(title: "NEVISON: 'SWIFT NICKS'", author_id: rand(1..User.all.length), book_id: book1.id, description: "", approved: true)
@@ -85,9 +114,9 @@ Scornfully Stephen watched them mount the hill, their crimson sweaters making a 
 
 oceanBook = Book.create(title: "The Ocean and its Wonders", author_id: rand(1..User.all.length), genre: "Children's Fiction", description: "What the Ocean has to Say—Its Whispers—Its Thunders—Its Secrets.", complete: false)
 
-oceanChap1 = Chapter.create(title: "Chapter One", author_id: rand(1..User.all.length), book_id: oceanBook.id, description: "", approved: true)
+oceanChap1 = Chapter.create(title: "Chapter One", author_id: rand(1..User.all.length), book_id: oceanBook.id, description: "This is the first chapter that will begin to describe the voice of the ocean.", approved: true)
 
-oceanChap2 = Chapter.create(title: "Chapter I", author_id: rand(1..User.all.length), book_id: oceanBook.id, description: "", approved: false)
+oceanChap2 = Chapter.create(title: "Chapter Two", author_id: rand(1..User.all.length), book_id: oceanBook.id, description: "What is the sea made of?", approved: false)
 
 oceanSnip1 = Snippet.create(content: "There is a voice in the waters of the great sea. It calls to man continually. Sometimes it thunders in the tempest, when the waves leap high and strong and the wild winds shriek and roar, as if to force our attention. Sometimes it whispers in the calm, and comes rippling on the shingly beach in a still, small voice, as if to solicit our regard. But whether that voice of ocean comes in crashing billows or in gentle murmurs, it has but one tale to tell,—it speaks of the love, and power, and majesty of Him who rides upon the storm, and rules the wave.", chapter_id: oceanChap1.id, approved: true)
 
@@ -97,36 +126,6 @@ oceanSnip3 = Snippet.create(content: "Before proceeding to the consideration of 
 
 What is the sea made of? Salt water, is the ready reply that rises naturally to every lip. But to this we add the question,—What is salt water? or, as there are many kinds of salt water, of what sort of salt water does the sea consist? To these queries we give the following reply, which, we doubt not, will rather surprise some of our readers.", chapter_id: oceanChap2.id, approved: false)
 
-
-
-# 15.times do
-# 	Book.create(title: Faker::Book.title, author_id: rand(1..User.all.length), genre: Faker::Book.genre, description: Faker::Hipster.sentence, complete: false)
-# end
-#
-# 5.times do
-# 	Book.create(title: Faker::Book.title, author_id: rand(1..User.all.length), genre: Faker::Book.genre, description: Faker::Hipster.sentence, complete: true)
-# end
-#
-#
-# 30.times do
-# 	Chapter.create(title: "Chapter " + Faker::Hipster.word, author_id: rand(1..User.all.length), book_id: rand(1..Book.all.length), description: Faker::Hipster.sentence, approved: true)
-# end
-#
-# 30.times do
-# 	Chapter.create(title: "Chapter " + Faker::Hipster.word, author_id: rand(1..User.all.length), book_id: rand(1..Book.all.length), description: Faker::Hipster.sentence, approved: false)
-# end
-
-# 60.times do
-#   UserChapter.create(user_id: rand(1..User.all.length), chapter_id: rand(1..Chapter.all.length), vote_choice: rand(-1..1))
-# end
-
-# 90.times do
-# 	Snippet.create(content: Faker::Hipster.paragraph, chapter_id: rand(1..Chapter.all.length), approved: true)
-# end
-#
-# 90.times do
-# 	Snippet.create(content: Faker::Hipster.paragraph, chapter_id: rand(1..Chapter.all.length), approved: false)
-# end
 
 # 120.times do
 # 	UserSnippet.create(user_id: rand(1..User.all.length), snippet_id: rand(1..Snippet.all.length), vote_choice: rand(-1..1))
