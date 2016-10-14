@@ -13,4 +13,4 @@ This project showcases the collaborators knowledge of key concepts like:
 * HTML/CSS in conjunction with Bootstrap
 * RESTful conventions
 
-The React front end repository can be found [here](https://github.com/lgants/flatiron-final-react).
+The React front end repository can be found [here](https://github.com/lgants/flatiron-final-react)
